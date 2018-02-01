@@ -1,0 +1,135 @@
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+section.new-tweet {
+  border-radius: 10px;
+  border-style: solid;
+  margin: 0 2em 0 2em;
+  border-color: rgba(170, 170, 170, 1);
+  box-sizing: border-box;
+  margin-bottom: 60px;
+  padding: 15px;
+}
+
+h2.new-tweet {
+    padding: 0 0 2px;
+    border-bottom: 1px solid;
+    border-bottom-color: black;
+    margin: 0 0 20px;
+  /*text-decoration: underline;*/
+}
+
+textarea {
+  width: 100%;
+  margin: 0 auto;
+  left: 19px;
+}
+
+span.counter {
+  float: right;
+}
+
+.red {
+  color: red;
+}
+
+section.tweets  {
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    margin: 6px 2em 6px 2em;
+    border-color: rgba(170, 170, 170, 1);
+    box-sizing: border-box;
+    padding: 5px 25px;
+}
+
+article.tweets {
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: rgba(200, 200, 200, 1);
+  border-style: solid;
+
+}
+
+article.tweets:hover {
+  text-shadow: 1px 0 0 currentColor;
+}
+
+header.tweets {
+  background-color: rgba(230, 230, 230, 1);
+  text-align: center;
+  vertical-align: middle;
+}
+
+img.tweets {
+  height: 40px;
+  width: 40px
+  align-content: left;
+  text-align: center;
+  vertical-align: text-top;
+  padding: 1%;
+}
+
+h2.tweets {
+  display: inline-block;
+  margin: 0 0 0 0;
+  text-align: center;
+  vertical-align: text-top;
+}
+
+span.tweets {
+  display: inline-block;
+  align-content: right:;
+  font-size: 12.5px;
+  text-align: center;
+  vertical-align: text-bottom;
+}
+
+footer.tweets.clearfix {
+  border-top-color: rgba(200, 200, 200, 1);
+  border-top-width: 1px;
+  border-top-style: solid;
+  font-size: 80%;
+
+}
+
+.date {
+  display: inline-block;
+  width: 48%;
+  margin: 0;
+  /*float: left;*/
+
+}
+
+.icons {
+  display: inline-block;
+  width: 48%;
+  margin: 0;
+  text-align: right;
+  /*float: right;*/
+  /*clear: both;*/
+}
+
+section.tweetText {
+  box-sizing: border-box;
+  height: 125px;
+  width: auto;
+}
+
+
+/*issues - questions:
+1.dynamic sizing of tweet box
+2. image on hover - have text bolding but not image
+3. dynamic sizing of most elements
+4. dynamic sizing of text etc etc.......
+*/
+
+
+

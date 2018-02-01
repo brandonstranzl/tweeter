@@ -1,0 +1,40 @@
+
+#nav-bar {
+  position: fixed;
+  background-color: #00a087;
+  color: #e8fdff;
+  padding: 0px 2em 0px;
+  height: 80px;
+  box-sizing: border-box;
+  width: 100%;
+  margin:0;
+}
+
+img {
+  height: 80px;
+  width: 80px;
+}
+
+#nav-bar .logo {
+  float: left;
+}
+
+
+#nav-bar .header {
+  float: left;
+  margin-left: 10px;
+  font-size: 200%;
+  /*use this to center horizontally - see http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/*/
+  /*but to do this you need inline block - full block vs element that is only the height of the text*/
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
