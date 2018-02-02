@@ -14,7 +14,8 @@ $(document).on('ready', function () {
 
 
 $(".button").click (function () {
-  $(".new-tweet").slideDown( "slow");
+  $(".new-tweet-container").slideToggle( "slow");
+  $(".textbox").focus();
   });
 // $(#hiddenSection).on('click', 'submit') (function
 // removeClass("hiddenSection");
@@ -162,7 +163,7 @@ function renderTweets(db) {
 // i.content, i.created_at
   for (var tweet of db) {
     var $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
+    $('#tweets-container').prepend($tweet);
   }
 
 // if you dont need a loop and only dealing with one object:
