@@ -62,6 +62,11 @@ $('#load-more-tweets').submit(function (event) {
         })
       }
   });
+
+// **********************************************************************************************************
+// BELOW IS OLD CODE USED WHEN WE WERE OPERATING ON A LOCAL DATABASE.  SINCE SWITCHING TO MONGO, WE NO LONGER
+// NEED THIS CODE.  I KEPT ON THE FILE FOR REFERENCE PURPOSES AND TO SHOW EVOLUTION OF LEARNING MONGODB.
+
 // AJAX GET REQUEST:
 // Event.preventDefault();
 
@@ -159,14 +164,16 @@ $('#load-more-tweets').submit(function (event) {
 //     "created_at": 1461113796368
 //   }
 // ];
+// END OF OLD CODE.
+// *********************************************************************************************************
 
 // // HERE IS THE RENDER TWEETS FUNCTION:
 function renderTweets(db) {
 // loops through tweets
 // calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container - this put it it into the browser
+// takes return value and PREppends (PREpend so as to keep tweets in proper sort) it to the tweets container - this put it it into the browser
 
-// loop through array - each "tweet" = data[i]. therefore, i gets fed to createTweetElement. i = an object.
+// in local database before mongo: loop through array - each "tweet" = data[i]. therefore, i gets fed to createTweetElement. i = an object.
 // createTweelElement accesses the object by the keys - i.user.name, i.user.avatar.small, i.user.handle,
 // i.content, i.created_at
   for (var tweet of db) {
@@ -187,7 +194,7 @@ let avatar = tweet.user.avatars.small;
 let handle = tweet.user.handle;
 let safeContent = `<section class="tweetText">${escape(tweet.content.text)}</section>`;
 let daysAgo = moment(tweet.created_at).fromNow();
-//can also use - Math.floor((Date.now - tweet.created_at)/(1000 * 60 * 60 * 24) + 'days ago' but then need to write lots of stuff for today etc...
+//instead of moment can also use - Math.floor((Date.now - tweet.created_at)/(1000 * 60 * 60 * 24) + 'days ago' but then need to write lots of stuff for today etc...
 
 let $tweet = $(`
 
@@ -209,21 +216,10 @@ let $tweet = $(`
         </article>
 
         `)
-// to see what a "tweet" looks like on the console - if just an object of single tweet:
-// console.log($tweet);
 
 return $tweet;
 
 };
-
-// renderTweets(data);
-
-// console log the function:
-// console.log(createTweetElement(tweetData));
-
-// to see what a single tweet looks like on the page:
-// to add it to the page so we can make sure it's got all the right elements, classes, etc.
-// $('#tweets-container').append(createTweetElement(tweetData));
 
 // this is the escape function to turn user input text into safe text:
 function escape(str) {

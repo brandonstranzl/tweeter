@@ -20,11 +20,27 @@ historical tweets are set to be slightly opaque with opacity at 65% unless you h
 at which point thy will move to 100% opacity.
 !["screenshot of posting a test tweet"](https://github.com/brandonstranzl/tweeter/blob/master/docs/Post%20a%20Tweet!.png?raw=true)
 
-Here is a screenshot showing the change in opacity for the tweets on the hover of the mouse:
+Here are screenshots showing the change in opacity for the tweets on the hover of the mouse:
 
+Before hover:
+!["screenshot of tweet boxes before hover"](https://github.com/brandonstranzl/tweeter/blob/master/docs/Before%20hover%20-%20no%20icons.png?raw=true)
 
+On hover:
+!["screenshot of tweet boxes AFTER/ON hover"](https://github.com/brandonstranzl/tweeter/blob/master/docs/On%20hover%20-%20icons%20appear%20and%20text%20is%20darker.png?raw=true)
 
 ## Dependencies
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "chance": "^1.0.13",
+    "express": "^4.13.4",
+    "jquery": "^3.3.1",
+    "md5": "^2.2.1",
+    "mongodb": "^2.2.34",
+    "nodemon": "^1.14.11"
 
-- Express
-- Node 5.10.x or above
+Please note that hte package.JSON says you will need moment (this is to convert epoch times into various other times), but you will not need this as the moment functionality is using CDN in the html file.
+
+
+
+
+
