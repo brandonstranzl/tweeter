@@ -12,6 +12,14 @@ $(document).ready(function() {
 
 $(document).on('ready', function () {
 
+
+$(".button").click (function () {
+  $(".new-tweet").slideDown( "slow");
+  });
+// $(#hiddenSection).on('click', 'submit') (function
+// removeClass("hiddenSection");
+
+var loadTweets = function () {
 // Make an ajax request to the database to get the existing tweets on load:
 $.ajax({
   // see server files = tweets.js and routs.js for where to get the routes  - this means append /tweets to the "/" referred to in routes file: app.use("/tweets", tweetsRoutes);
@@ -21,17 +29,30 @@ $.ajax({
   // usually a response will be in JSON format - you will need to parse it.  but here jquery is smart enough to parse for you.  see chrome tools and look at the GET
   success: function (response) {
     console.log('Success: ', response);
-
+    // empty the tweets container before loading new tweets.
+    $('#tweets-container').empty();
+    $(".textbox").val('');
     renderTweets(response);
   }
 })
 
-// var loadTweets = function () {
+};
+loadTweets();
 
-// }
-// loadTweets();
-
-
+// grab the load more tweets form - prevent default actions on the form - make ajax request to POST the "this"
+// i.e., the form data....but serialize the form data.  then on the response: CALL load tweets.
+$('#load-more-tweets').on('submit', function (event) {
+  event.preventDefault();
+// post the data. dont I need the
+  $.ajax({
+  url: '/tweets',
+  method: 'POST',
+  data: $(this).serialize(),
+  success: function (response) {
+    loadTweets();
+  }
+})
+});
 // AJAX GET REQUEST:
 // Event.preventDefault();
 
@@ -155,7 +176,7 @@ var createTweetElement = function (tweet) {
 let userName = tweet.user.name;
 let avatar = tweet.user.avatars.small;
 let handle = tweet.user.handle;
-let content = tweet.content.text;
+let safeContent = `<section class="tweetText">${escape(tweet.content.text)}</section>`;
 let date = tweet.created_at;
 
 let $tweet = $(`
@@ -165,16 +186,12 @@ let $tweet = $(`
             <img class = "tweets" class = "clearfix" src="${avatar}"/>
             <h2 class = "tweets" class = "clearfix">${userName}</h2>
             <span class="tweets">${handle}</span>
-          </header>
+          </header>` +
+
+          safeContent  +
 
 
-          <section class="tweetText">
-            ${content}
-          </section>
-
-
-
-          <footer class="tweets" class="clearfix">
+          `<footer class="tweets" class="clearfix">
             <p class="date">${new Date(date)}</p>
             <p class="icons">XYZ</p>
           </footer>
@@ -197,5 +214,12 @@ return $tweet;
 // to see what a single tweet looks like on the page:
 // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 // $('#tweets-container').append(createTweetElement(tweetData));
+
+// this is the escape function to turn user input text into safe text:
+function escape(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 });

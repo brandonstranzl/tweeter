@@ -16,6 +16,7 @@ section.new-tweet {
   box-sizing: border-box;
   margin-bottom: 60px;
   padding: 15px;
+  display: none;
 }
 
 h2.new-tweet {
@@ -55,11 +56,11 @@ article.tweets {
   border-width: 1px;
   border-color: rgba(200, 200, 200, 1);
   border-style: solid;
-
+  margin: 10px 5px;
 }
 
 article.tweets:hover {
-  text-shadow: 1px 0 0 currentColor;
+
 }
 
 header.tweets {

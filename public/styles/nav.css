@@ -1,4 +1,13 @@
 
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
 #nav-bar {
   position: fixed;
   background-color: #00a087;
@@ -28,8 +37,27 @@ img {
   /*but to do this you need inline block - full block vs element that is only the height of the text*/
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(50%);
 }
+
+#nav-bar .button {
+  float: right;
+  position: relative;
+  top: 50%;
+  transform: translateY(25%);
+  text-align: center;
+  color: #00a087;
+  padding: 15px 15px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  border-radius: 10px;
+  }
+
+#nav-bar .button:hover {
+  font-weight: bold;
+  color: black;
+  }
 
 .clearfix::after {
     content: "";
