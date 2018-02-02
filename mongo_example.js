@@ -10,6 +10,9 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   }
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
+
+
+
 function getTweets(callback) {
   db.collection("tweets").find().toArray() {
       callback(null, tweets);

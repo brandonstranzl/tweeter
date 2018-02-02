@@ -17,8 +17,6 @@ $(".button").click (function () {
   $(".new-tweet-container").slideToggle( "slow");
   $(".textbox").focus();
   });
-// $(#hiddenSection).on('click', 'submit') (function
-// removeClass("hiddenSection");
 
 var loadTweets = function () {
 // Make an ajax request to the database to get the existing tweets on load:
@@ -42,17 +40,26 @@ loadTweets();
 
 // grab the load more tweets form - prevent default actions on the form - make ajax request to POST the "this"
 // i.e., the form data....but serialize the form data.  then on the response: CALL load tweets.
-$('#load-more-tweets').on('submit', function (event) {
-  event.preventDefault();
-// post the data. dont I need the
-  $.ajax({
-  url: '/tweets',
-  method: 'POST',
-  data: $(this).serialize(),
-  success: function (response) {
-    loadTweets();
-  }
-})
+$('#load-more-tweets').submit(function (event) {
+  let count = $(this).find('textarea').val().length;
+    if (count > 140) {
+      alert( "Tweets must be less than 140 characters!" );
+      event.preventDefault();
+    }
+    if (count <= 0) {
+      alert( "There is no text in yor tweet!" );
+      event.preventDefault();
+    }
+    if (count <= 140 && count > 0) {
+      $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: $(this).serialize(),
+        success: function (response) {
+        loadTweets();
+      }
+    })
+    }
 });
 // AJAX GET REQUEST:
 // Event.preventDefault();

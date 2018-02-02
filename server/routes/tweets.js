@@ -8,7 +8,7 @@ const tweetsRoutes  = express.Router();
 module.exports = function(DataHelpers) {
 
   tweetsRoutes.get("/", function(req, res) {
-    DataHelpers.getTweets((err, tweets) => {
+    DataHelpers.getTweets((err, tweets) => { // function(err) {}
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
@@ -32,7 +32,9 @@ module.exports = function(DataHelpers) {
       created_at: Date.now()
     };
 
-    DataHelpers.saveTweet(tweet, (err) => {
+    // HERE IS WHERE THE DATAHELPERS SAVETWEET FUNCTION GETS CALLED AND PASSED THE CALLBACK
+    // THE CALLBACK PASSED IS FUNCTION (ERR) { IF (ERR) { RES.STATUS(500).JSON....ELSE...RES.STATUS(201).SEND(); } });
+    DataHelpers.saveTweet(tweet, (err) => { // function(err) {}
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
