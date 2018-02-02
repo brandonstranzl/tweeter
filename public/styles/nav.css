@@ -26,8 +26,12 @@ img {
 
 #nav-bar .logo {
   float: left;
+  padding
 }
 
+header.tweets {
+  opacity: .5;
+}
 
 #nav-bar .header {
   float: left;

@@ -56,10 +56,15 @@ article.tweets {
   border-color: rgba(200, 200, 200, 1);
   border-style: solid;
   margin: 10px 5px;
+  opacity: .65;
+}
+
+article.tweets:hover .icons {
+  display: inline-block;
 }
 
 article.tweets:hover {
-
+  opacity: 1;
 }
 
 header.tweets {
@@ -97,19 +102,18 @@ footer.tweets.clearfix {
   border-top-width: 1px;
   border-top-style: solid;
   font-size: 80%;
-
 }
 
 .date {
   display: inline-block;
   width: 48%;
   margin: 0;
+  padding: 1px 8px;
   /*float: left;*/
-
 }
 
 .icons {
-  display: inline-block;
+  display: none;
   width: 48%;
   margin: 0;
   text-align: right;
@@ -117,11 +121,17 @@ footer.tweets.clearfix {
   /*clear: both;*/
 }
 
+svg {
+  margin: 0 5px;
+}
+
 section.tweetText {
   box-sizing: border-box;
   height: 125px;
   width: auto;
 }
+
+
 
 
 /*issues - questions:

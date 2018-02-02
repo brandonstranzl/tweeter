@@ -41,26 +41,27 @@ loadTweets();
 // grab the load more tweets form - prevent default actions on the form - make ajax request to POST the "this"
 // i.e., the form data....but serialize the form data.  then on the response: CALL load tweets.
 $('#load-more-tweets').submit(function (event) {
+  event.preventDefault();
   let count = $(this).find('textarea').val().length;
     if (count > 140) {
       alert( "Tweets must be less than 140 characters!" );
       event.preventDefault();
-    }
+    };
     if (count <= 0) {
       alert( "There is no text in yor tweet!" );
       event.preventDefault();
-    }
-    if (count <= 140 && count > 0) {
-      $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: $(this).serialize(),
-        success: function (response) {
-        loadTweets();
+    };
+    if ((count > 0) && (count <= 140)) {
+        $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: $(this).serialize(),
+          success: function (response) {
+          loadTweets();
+          }
+        })
       }
-    })
-    }
-});
+  });
 // AJAX GET REQUEST:
 // Event.preventDefault();
 
@@ -185,7 +186,8 @@ let userName = tweet.user.name;
 let avatar = tweet.user.avatars.small;
 let handle = tweet.user.handle;
 let safeContent = `<section class="tweetText">${escape(tweet.content.text)}</section>`;
-let date = tweet.created_at;
+let daysAgo = moment(tweet.created_at).fromNow();
+//can also use - Math.floor((Date.now - tweet.created_at)/(1000 * 60 * 60 * 24) + 'days ago' but then need to write lots of stuff for today etc...
 
 let $tweet = $(`
 
@@ -200,8 +202,8 @@ let $tweet = $(`
 
 
           `<footer class="tweets" class="clearfix">
-            <p class="date">${new Date(date)}</p>
-            <p class="icons">Icons</p>
+            <p class="date">${daysAgo}</p>
+            <p class="icons"><i class="far fa-flag"></i><i class="fas fa-retweet"></i><i class="far fa-heart"></i></p>
           </footer>
 
         </article>
