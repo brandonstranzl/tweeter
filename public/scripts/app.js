@@ -194,7 +194,7 @@ let $tweet = $(`
 
           `<footer class="tweets" class="clearfix">
             <p class="date">${new Date(date)}</p>
-            <p class="icons">XYZ</p>
+            <p class="icons">Icons</p>
           </footer>
 
         </article>
