@@ -1,4 +1,4 @@
-/*
+ /*
  * Client-side JS logic goes here
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
@@ -37,6 +37,19 @@ $.ajax({
 
 };
 loadTweets();
+
+$(document).on("click","#likebutton", function(){
+  alert("hello");
+});
+
+// $('#heart').on('click', function () {
+//   alert( "Handler for .click() called." );
+// });
+
+
+  // let likeCount = $('.likeCounter').val();
+  // $(".likeCounter").val().text(likeCount + 1);
+
 
 // grab the load more tweets form - prevent default actions on the form - make ajax request to POST the "this"
 // i.e., the form data....but serialize the form data.  then on the response: CALL load tweets.
@@ -208,9 +221,10 @@ let $tweet = $(`
           safeContent  +
 
 
-          `<footer class="tweets" class="clearfix">
+          `<footer id="tweetsfooter" class="clearfix">
             <p class="date">${daysAgo}</p>
-            <p class="icons"><i class="far fa-flag"></i><i class="fas fa-retweet"></i><i class="far fa-heart"></i></p>
+            <p class="icons"><i class="far fa-flag"></i><i class="fas fa-retweet"></i><span id=likebutton><i class="far fa-heart"></i></span>
+            </p>
           </footer>
 
         </article>

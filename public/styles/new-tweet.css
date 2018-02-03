@@ -60,7 +60,7 @@ article.tweets {
 }
 
 article.tweets:hover .icons {
-  display: inline-block;
+  visibility: visible;
 }
 
 article.tweets:hover {
@@ -113,10 +113,10 @@ footer.tweets.clearfix {
 }
 
 .icons {
-  display: none;
-  width: 48%;
+  visibility: hidden;
+  width: 40%;
   margin: 0;
-  text-align: right;
+  float: right;
   /*float: right;*/
   /*clear: both;*/
 }
