@@ -39,17 +39,24 @@ $.ajax({
 loadTweets();
 
 $(document).on("click","#likebutton", function(){
-  alert("hello");
+  alert('need to write function to increment the like counter');
+  //   let likeCount = $('#likeCounter').text();
+  //   console.log(likeCount);
+  //   let newLike = (likeCount + 1);
+  // $(".likeCounter").text(newLike);
 });
 
-// $('#heart').on('click', function () {
-//   alert( "Handler for .click() called." );
-// });
+$(document).on("click","#likeCounter", function(){
+  alert('need to write function to increment the like counter');
 
-
-  // let likeCount = $('.likeCounter').val();
-  // $(".likeCounter").val().text(likeCount + 1);
-
+    // let likeCount = $('#likeCounter').text();
+    // console.log(likeCount);
+    // let newLike = (likeCount + 1);
+    // $('#likeCounter').text(newLike);
+  //   console.log(likeCount);
+  //   let newLike = (likeCount + 1);
+  // $(".likeCounter").text(newLike);
+});
 
 // grab the load more tweets form - prevent default actions on the form - make ajax request to POST the "this"
 // i.e., the form data....but serialize the form data.  then on the response: CALL load tweets.
@@ -224,6 +231,7 @@ let $tweet = $(`
           `<footer id="tweetsfooter" class="clearfix">
             <p class="date">${daysAgo}</p>
             <p class="icons"><i class="far fa-flag"></i><i class="fas fa-retweet"></i><span id=likebutton><i class="far fa-heart"></i></span>
+            <span id="likeCounter">123</span>
             </p>
           </footer>
 
